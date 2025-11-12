@@ -111,12 +111,21 @@ nav{
     animation-fill-mode: forwards;
 }
 
-.mission-block{
+
+
+.hero{
     z-index: 2;
-    margin-top: 30vh;
+    margin-top: 15vh;
     margin-left: 25vh;
     margin-right: 25vh;
+    margin-bottom: 15vh;
    /* From https://css.glass */
+
+}
+
+.card{
+    margin-left: 25vh;
+    margin-right: 25vh;
     background: rgba(255, 255, 255, 0);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -124,4 +133,18 @@ nav{
     -webkit-backdrop-filter: blur(8.7px);
     border: 1px solid rgba(255, 255, 255, 0.028);
     padding: 5vh;
+}
+
+.card-less{
+    margin-left: 25vh;
+    margin-right: 25vh;
+    padding: 5vh;
+/* From https://css.glass */
+/* From https://css.glass */
+    background: rgba(10, 14, 26, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(10, 14, 26, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(10, 14, 26, 0.3);
 }
