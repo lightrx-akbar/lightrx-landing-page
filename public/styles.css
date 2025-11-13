@@ -17,13 +17,14 @@ body {
   position: relative;
 }
 body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* Grid pattern - subtle light blue lines */
-  background-image: repeating-linear-gradient(
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Grid pattern - subtle light blue lines */
+    background-image: repeating-linear-gradient(
       0deg,
       transparent,
       transparent 99px,
@@ -37,17 +38,17 @@ body::before {
       rgba(100, 150, 255, 0.08) 99px,
       rgba(100, 150, 255, 0.08) 100px
     );
-  background-size: 100% 100%;
-  pointer-events: none;
-  animation: fadeInGradient 2.5s ease-out;
-  opacity: 0;
-  animation-fill-mode: forwards;
-  will-change: opacity;
-  transform: translateZ(0);
+    background-size: 100% 100%;
+    animation: fadeInGradient 2.5s ease-out;
+    animation-fill-mode: forwards;
+    will-change: opacity;
+    transform: translateZ(0);
 }
+
 body::after {
-  content: "";
-  position: absolute;
+    z-index: -1;
+    content: "";
+    position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -58,9 +59,8 @@ body::after {
     #18666c 15%,
     #285a5d 35%,
     transparent 70%
-  ); 
+  );
   background-size: 100% 55%;
-  pointer-events: none;
   mix-blend-mode: screen;
   animation: fadeInGradient 4s ease-out 0.5s;
   opacity: 0;
@@ -91,7 +91,23 @@ body::after {
   display: block;
   align-items: center;
 }
+main {
+  position: relative;
+  z-index: 1;
+}
+.checkered {
+  position: relative;
+  z-index: 1;
+}
+header {
+  position: relative;
+  z-index: 10;
+}
 nav {
+  position: relative;
+  z-index: 10;
+}
+.nav-container {
   padding-top: 3vh;
   display: flex;
   flex-direction: row;
@@ -99,22 +115,42 @@ nav {
   gap: 10vh;
   margin-right: 10vh;
   padding-bottom: 5vh;
-  animation: fadeIn 1s ease-out;
-  opacity: 0;
-  animation-fill-mode: forwards;
-  will-change: opacity, transform;
-  transform: translateZ(0);
+
+  position: relative;
+  z-index: 10;
 }
 .nav-item {
-  font-size: 25px;
-  transition: transform 0.3s ease;
-  will-change: transform;
-  transform: translateZ(0);
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    transition: transform 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-.nav-item:hover{
+.nav-item:hover {
+  cursor: pointer;
+  transform: scale(1.1) translateZ(0);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 2rem;
     cursor: pointer;
-    transform: scale(1.1) translateZ(0);
+    position: relative;
+    z-index: 10;
+}
+
+.nav-toggle:hover{
+    scale: 1.1;
+}
+
+
+.nav-header{
+    display: flex;
+    justify-content: end;
+    position: relative;
+    z-index: 10;
 }
 
 .title {
@@ -125,15 +161,17 @@ nav {
   will-change: opacity, transform;
   transform: translateZ(0);
 }
+
 .hero {
   z-index: 2;
   margin-top: 15vh;
   margin-left: 25vh;
   margin-right: 25vh;
-  margin-bottom: 15vh; 
+  margin-bottom: 15vh;
   transform: translateZ(0);
   contain: layout style paint;
 }
+
 .card {
   margin-left: 25vh;
   margin-right: 25vh;
@@ -142,25 +180,16 @@ nav {
   will-change: transform;
   transform: translateZ(0);
 }
-.card-less {
-  margin-left: 25vh;
-  margin-right: 25vh;
-  padding: 5vh;
-  background: rgba(10, 14, 26, 1);
-  border-radius: 16px;
 
-
-
-  transform: translateZ(0);
-}
 .after-bg {
-  margin-top: 10vh;
+  margin-top: 50vh;
   padding: 5vh 25vh;
   background: #0a0e1a;
   border-top: white 1px solid;
   position: relative;
   z-index: 1;
 }
+
 .services {
   display: block;
   text-align: center;
@@ -206,7 +235,6 @@ nav {
 }
 .service-item:hover {
   transform: translateY(-4px);
-
 }
 .service-item:hover::before {
   opacity: 1;
@@ -224,10 +252,12 @@ nav {
   color: rgba(255, 255, 255, 0.75);
   margin: 0;
 }
+
 #contact {
-  margin-top: 5rem;
-  padding-top: 4rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 #contact h2 {
   font-size: 3rem;
@@ -254,8 +284,7 @@ nav {
   border-bottom-color: #14a0b0;
 }
 #contact form {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -310,6 +339,30 @@ nav {
 #contact form button:active {
   transform: translateY(0);
 }
+.contact-container{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.contact-form{
+    flex: 1;
+    min-width: 0;
+}
+.contact-container > div:last-child {
+    flex: 1;
+    min-width: 0;
+}
+.contact-container iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 @media (max-width: 768px) {
   .services-container {
     grid-template-columns: 1fr;
@@ -336,32 +389,95 @@ nav {
   #contact form {
     padding: 0 1rem;
   }
+  .contact-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .contact-container iframe {
+    height: 300px;
+  }
+
+  .nav-toggle
+  {
+    display: block;
+  }
+  .nav-container {
+    
+    background-color: #000000;
+    z-index: 2;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: sticky;
+    top: 3rem;
+    left: 0;  /* instead of right: 0 */
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .nav-container.show {
+    display: flex; /* show menu when toggled */
+  }
+  .nav-item {
+    padding: 10px 0;
+  }
+  .nav-header {
+    background-color: #000000;
+  }
 }
 
-footer{  
-
-    position: relative;
-    z-index: 10000;
-    background-color: #0a0e1a;;
+footer {
+  position: relative;
+  z-index: 10000;
+  background-color: #0a0e1a;
 }
-.spacer{
-    margin-left: 15vh;
-    margin-right: 15vh;
-    padding-top: 4rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.spacer {
+  margin-left: 15vh;
+  margin-right: 15vh;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.logo
-{
-    max-height: 200px;
-    max-width: 200px;
+.logo {
+  max-height: 200px;
+  max-width: 200px;
 }
 
-.title-container{
-
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.title-container > h1 {
+  padding-top: 25px;
+}
+.footer-container{
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
-.title-container>h1{
-    padding-top: 25px;
+.footer-list{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.footer-link{
+    margin-top: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.about{
+    font-size: large;
+    margin-left: 10vh;
+    margin-right: 10vh;
+}
+.about-title{
+    margin-bottom: 10px;
+}
+.service-item-header{
+    gap: 25px;
+    display: flex;
+    flex-direction: row;
 }
