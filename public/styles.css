@@ -26,22 +26,24 @@ body::before {
   background-image: repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 49px,
-      rgba(100, 150, 255, 0.12) 49px,
-      rgba(100, 150, 255, 0.12) 50px
+      transparent 99px,
+      rgba(100, 150, 255, 0.08) 99px,
+      rgba(100, 150, 255, 0.08) 100px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
-      transparent 49px,
-      rgba(100, 150, 255, 0.12) 49px,
-      rgba(100, 150, 255, 0.12) 50px
+      transparent 99px,
+      rgba(100, 150, 255, 0.08) 99px,
+      rgba(100, 150, 255, 0.08) 100px
     );
   background-size: 100% 100%;
   pointer-events: none;
   animation: fadeInGradient 2.5s ease-out;
   opacity: 0;
   animation-fill-mode: forwards;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 body::after {
   content: "";
@@ -63,15 +65,17 @@ body::after {
   animation: fadeInGradient 4s ease-out 0.5s;
   opacity: 0;
   animation-fill-mode: forwards;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-20px) translateZ(0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
   }
 }
 @keyframes fadeInGradient {
@@ -98,15 +102,19 @@ nav {
   animation: fadeIn 1s ease-out;
   opacity: 0;
   animation-fill-mode: forwards;
+  will-change: opacity, transform;
+  transform: translateZ(0);
 }
 .nav-item {
   font-size: 25px;
-  transition: transform 0.5s ease; 
+  transition: transform 0.3s ease;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .nav-item:hover{
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.1) translateZ(0);
 }
 
 .title {
@@ -114,35 +122,36 @@ nav {
   animation: fadeIn 1s ease-out 0.3s;
   opacity: 0;
   animation-fill-mode: forwards;
+  will-change: opacity, transform;
+  transform: translateZ(0);
 }
 .hero {
   z-index: 2;
   margin-top: 15vh;
   margin-left: 25vh;
   margin-right: 25vh;
-  margin-bottom: 15vh; /* From https://css.glass */
+  margin-bottom: 15vh; 
+  transform: translateZ(0);
+  contain: layout style paint;
 }
 .card {
   margin-left: 25vh;
   margin-right: 25vh;
   background: rgba(255, 255, 255, 0);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.7px);
-  -webkit-backdrop-filter: blur(8.7px);
-  border: 1px solid rgba(255, 255, 255, 0.028);
   padding: 5vh;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .card-less {
   margin-left: 25vh;
   margin-right: 25vh;
-  padding: 5vh; /* From https://css.glass */ /* From https://css.glass */
+  padding: 5vh;
   background: rgba(10, 14, 26, 1);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(10, 14, 26, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(10, 14, 26, 0.3);
+
+
+
+  transform: translateZ(0);
 }
 .after-bg {
   margin-top: 10vh;
@@ -354,5 +363,5 @@ footer{
     justify-content: center;
 }
 .title-container>h1{
-    padding-top: 10vh;
+    padding-top: 25px;
 }
