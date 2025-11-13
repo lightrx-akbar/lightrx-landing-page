@@ -56,8 +56,8 @@ body::after {
     #18666c 15%,
     #285a5d 35%,
     transparent 70%
-  ); /* Magenta-purple beam from bottom-left, diagonal up-right */
-  background-size: 100% 100%;
+  ); 
+  background-size: 100% 55%;
   pointer-events: none;
   mix-blend-mode: screen;
   animation: fadeInGradient 4s ease-out 0.5s;
@@ -101,7 +101,14 @@ nav {
 }
 .nav-item {
   font-size: 25px;
+  transition: transform 0.5s ease; 
 }
+
+.nav-item:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .title {
   font-size: 80px;
   animation: fadeIn 1s ease-out 0.3s;
@@ -320,4 +327,32 @@ nav {
   #contact form {
     padding: 0 1rem;
   }
+}
+
+footer{  
+
+    position: relative;
+    z-index: 10000;
+    background-color: #0a0e1a;;
+}
+.spacer{
+    margin-left: 15vh;
+    margin-right: 15vh;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.logo
+{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.title-container{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.title-container>h1{
+    padding-top: 10vh;
 }
