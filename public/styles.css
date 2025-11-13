@@ -1,150 +1,323 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-:root
-{
-    --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+:root {
+  --font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }
-body 
-{
-    font-family: var(--font-family);
-    color: white;    
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: #0a0e1a;
-    position: relative;
-
+body {
+  font-family: var(--font-family);
+  color: white;
+  min-height: 100vh;
+  width: 100%;
+  background: #0a0e1a;
+  overflow-x: hidden;
+  position: relative;
 }
-
 body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Grid pattern - subtle light blue lines */
-    background-image: 
-        repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(100, 150, 255, 0.12) 49px, rgba(100, 150, 255, 0.12) 50px),
-        repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(100, 150, 255, 0.12) 49px, rgba(100, 150, 255, 0.12) 50px);
-    background-size: 100% 100%;
-    pointer-events: none;
-    animation: fadeInGradient 1.5s ease-out;
-    opacity: 0;
-    animation-fill-mode: forwards;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Grid pattern - subtle light blue lines */
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 49px,
+      rgba(100, 150, 255, 0.12) 49px,
+      rgba(100, 150, 255, 0.12) 50px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 49px,
+      rgba(100, 150, 255, 0.12) 49px,
+      rgba(100, 150, 255, 0.12) 50px
+    );
+  background-size: 100% 100%;
+  pointer-events: none;
+  animation: fadeInGradient 2.5s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
-
 body::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Diagonal light beams */
-    background-image: 
-        /* Blue beam from top-left, diagonal down-right */
-        linear-gradient(135deg, 
-            #0d767e 0%, 
-            #18666c 15%,
-            #285a5d 35%,
-            transparent 70%);
-        /* Magenta-purple beam from bottom-left, diagonal up-right */
-
-    background-size: 100% 100%;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    animation: fadeInGradient 1.5s ease-out 0.2s;
-    opacity: 0;
-    animation-fill-mode: forwards;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Diagonal light beams */
+  background-image: /* Blue beam from top-left, diagonal down-right */ linear-gradient(
+    135deg,
+    #0d767e 0%,
+    #18666c 15%,
+    #285a5d 35%,
+    transparent 70%
+  ); /* Magenta-purple beam from bottom-left, diagonal up-right */
+  background-size: 100% 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: fadeInGradient 4s ease-out 0.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
-
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 @keyframes fadeInGradient {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.centered{
-    text-align: center;
-    display: block;
-    align-items: center;
-}
-
-nav{
-    padding-top: 3vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    gap: 10vh;
-    margin-right: 10vh;
-    padding-bottom: 5vh;
-    animation: fadeIn 1s ease-out;
+  from {
     opacity: 0;
-    animation-fill-mode: forwards;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.nav-item{
-    font-size: 25px;
-    
+.centered {
+  text-align: center;
+  display: block;
+  align-items: center;
 }
-.title{
-    font-size: 80px;
-    animation: fadeIn 1s ease-out 0.3s;
-    opacity: 0;
-    animation-fill-mode: forwards;
+nav {
+  padding-top: 3vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 10vh;
+  margin-right: 10vh;
+  padding-bottom: 5vh;
+  animation: fadeIn 1s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
-
-
-
-.hero{
-    z-index: 2;
-    margin-top: 15vh;
-    margin-left: 25vh;
-    margin-right: 25vh;
-    margin-bottom: 15vh;
-   /* From https://css.glass */
+.nav-item {
+  font-size: 25px;
+}
+.title {
+  font-size: 80px;
+  animation: fadeIn 1s ease-out 0.3s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.hero {
+  z-index: 2;
+  margin-top: 15vh;
+  margin-left: 25vh;
+  margin-right: 25vh;
+  margin-bottom: 15vh; /* From https://css.glass */
+}
+.card {
+  margin-left: 25vh;
+  margin-right: 25vh;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(255, 255, 255, 0.028);
+  padding: 5vh;
+}
+.card-less {
+  margin-left: 25vh;
+  margin-right: 25vh;
+  padding: 5vh; /* From https://css.glass */ /* From https://css.glass */
+  background: rgba(10, 14, 26, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(10, 14, 26, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(10, 14, 26, 0.3);
+}
+.after-bg {
+  margin-top: 10vh;
+  padding: 5vh 25vh;
+  background: #0a0e1a;
+  border-top: white 1px solid;
+  position: relative;
+  z-index: 1;
+}
+.services {
+  display: block;
+  text-align: center;
+  padding: 4rem 0;
+}
+.services h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+.icon-service {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.icon-service img {
+  width: 48px;
+  height: 48px;
+}
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+.service-item {
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.service-item::before {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #0d767e 0%, #18666c 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.service-item:hover {
+  transform: translateY(-4px);
 
 }
-
-.card{
-    margin-left: 25vh;
-    margin-right: 25vh;
-    background: rgba(255, 255, 255, 0);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8.7px);
-    -webkit-backdrop-filter: blur(8.7px);
-    border: 1px solid rgba(255, 255, 255, 0.028);
-    padding: 5vh;
+.service-item:hover::before {
+  opacity: 1;
 }
-
-.card-less{
-    margin-left: 25vh;
-    margin-right: 25vh;
-    padding: 5vh;
-/* From https://css.glass */
-/* From https://css.glass */
-    background: rgba(10, 14, 26, 1);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(10, 14, 26, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(10, 14, 26, 0.3);
+.service-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.service-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+#contact {
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+#contact h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+#contact > p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+#contact > p a {
+  color: #0d767e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+#contact > p a:hover {
+  color: #14a0b0;
+  border-bottom-color: #14a0b0;
+}
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#contact form input,
+#contact form textarea {
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: var(--font-family);
+  transition: all 0.3s ease;
+  outline: none;
+}
+#contact form input::placeholder,
+#contact form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+#contact form input:focus,
+#contact form textarea:focus {
+  border-color: rgba(13, 118, 126, 0.6);
+  box-shadow: 0 0 0 3px rgba(13, 118, 126, 0.1);
+  background: linear-gradient(135deg, #1f2535 0%, #141a24 100%);
+}
+#contact form textarea {
+  min-height: 150px;
+  resize: vertical;
+  font-family: var(--font-family);
+}
+#contact form button {
+  background: linear-gradient(135deg, #0d767e 0%, #18666c 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
+  align-self: center;
+  min-width: 150px;
+  margin-top: 0.5rem;
+}
+#contact form button:hover {
+  background: linear-gradient(135deg, #14a0b0 0%, #0d767e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 118, 126, 0.3);
+}
+#contact form button:active {
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .services-container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+  .services h2 {
+    font-size: 2.25rem;
+  }
+  .service-item {
+    padding: 1.5rem;
+  }
+  #contact {
+    margin-top: 3rem;
+    padding-top: 3rem;
+  }
+  #contact h2 {
+    font-size: 2.25rem;
+  }
+  #contact > p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  #contact form {
+    padding: 0 1rem;
+  }
 }
