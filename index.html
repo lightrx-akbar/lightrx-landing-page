@@ -23,7 +23,6 @@
       <ul class="nav-list">
         <a class="nav-item" href="#about">About</a>
         <a class="nav-item" href="#services">Services</a>
-        <a class="nav-item" href="#contact">Partner with us</a>
         <a class="nav-item" href="#contact">Contact</a>
       </ul>
     </div>
@@ -151,9 +150,7 @@
             <button type="submit">Send</button>
           </form>
         </div>
-        <div>
-          <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-2.296802401542664%2C53.47056535635121%2C-2.2933691740036015%2C53.47209960979901&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=19/53.471332/-2.295086&amp;layers=N">View Larger Map</a></small>
-        </div>
+        <div id="map"></div>
       </div>
     </section>
   </main>
@@ -203,7 +200,15 @@
     </div>
   </footer>
   <script>
-
+    const map = L.map('map').setView([51.505, -0.09], 13);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    L.marker([53.471332, -2.295086]).addTo(map)
+      .bindPopup('Our Location: Light Rx – Salford')
+      .openPopup();
   </script>
 </body>
 </html>

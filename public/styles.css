@@ -1,6 +1,7 @@
 :root {
     --nav-footer-bg : #0a0e1a;
-    --margin-value: 200px
+    --margin-value: 200px;
+    --primary-colour : #0d767e;
   }
 
 * {
@@ -51,7 +52,8 @@ nav{
 }
 .nav-item:hover{
     cursor: pointer;
-    transform: scale(1.1) translateZ(0);
+    color: var(--primary-colour);
+    transform: scale(1.01) translateZ(0);
 }
 header{
     position: relative;
@@ -318,7 +320,7 @@ color: rgba(255, 255, 255, 0.5);
 }
 #contact form input:focus,
 #contact form textarea:focus {
-border-color: rgba(13, 118, 126, 0.6);
+border-color: var(--primary-colour);
 box-shadow: 0 0 0 3px rgba(13, 118, 126, 0.1);
 background: linear-gradient(135deg, #1f2535 0%, #141a24 100%);
 }
@@ -345,7 +347,7 @@ margin-top: 0.5rem;
 #contact form button:hover {
 background: linear-gradient(135deg, #14a0b0 0%, #0d767e 100%);
 transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(13, 118, 126, 0.3);
+
 }
 #contact form button:active {
 transform: translateY(0);
@@ -439,5 +441,11 @@ footer > p {
 }
 
 .footer-link:hover {
-  color: #0d767e;
+  color: #0d767e
+}
+
+
+#map{
+  width: 425px;
+  height: 350px;
 }
