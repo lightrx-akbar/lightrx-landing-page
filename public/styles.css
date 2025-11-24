@@ -65,6 +65,7 @@ nav{
   display: none;
   font-size: 2rem;
   cursor: pointer;
+  padding-right: 10px;
 }
 
 
@@ -74,6 +75,7 @@ header{
     display: flex;
     flex-direction: column;
     background-color: var(--nav-footer-bg);
+    overflow-x: hidden;
 }
 
 .banner{
@@ -174,6 +176,7 @@ main
 {
   background-color: var(--nav-footer-bg);
   padding-bottom: 200px;
+  overflow-x: hidden;
 }
 
 @keyframes fadeIn {
@@ -1002,4 +1005,16 @@ stroke: white;
   .about-text{
     text-align: justify;
   }
+
+  .contact-container
+  {
+    display: flex;
+    flex-direction: column
+  }
+  .contact-form
+  {
+    width: 80%;
+  }
+
+
 }
