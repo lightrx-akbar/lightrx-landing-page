@@ -17,7 +17,7 @@
 <body>
   <nav>
     <div class="nav-header">
-      
+      <span class="nav-toggle">&#9776;</span>
     </div>
     <div class=" flex-row nav-container">
       <ul class="nav-list">
@@ -121,7 +121,7 @@
         <div class="section-header">
           <h2 class="main-title">About Us</h2>
         </div>
-        <p>
+        <p class="about-text">
           LightRx acquires and operates community and digital pharmacies, combining industry-standard 
           pharmacy management software with proprietary operational systems that streamline workflows, 
           optimize inventory, and enhance overall performance. This approach allows us to transform each 
@@ -229,6 +229,13 @@
     L.marker([53.471332, -2.295086]).addTo(map)
       .bindPopup('Our Location: LightRx - Salford')
       .openPopup();
+  </script>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-container');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
   </script>
 </body>
 </html>
