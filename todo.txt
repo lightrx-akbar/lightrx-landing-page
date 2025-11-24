@@ -1,8 +1,5 @@
 top 
-	reduce to banner or add slid 
-	make thingy appear ontop of photos and the
-	top bar added for the navigation, navbar sticky
-	make nav cenetered
+
 	add comapny logo in nav bar
 who we are
 	incrase size of body and title
@@ -12,14 +9,9 @@ core services
 	icon - title, make them in line 
 	
 get in touch
-	replace gmaps with openmaps
 		add pin 
 	put address in there too 
-footer
-	padding
-	change socials to social media
-	make everything cenetred in-line 
-	make nav and footer look similar
 
-flip about and services
+
+
 dark mode and light mode 

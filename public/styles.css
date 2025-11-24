@@ -157,8 +157,10 @@ header{
     transform: translateZ(0);
 }
 
-main{
-    background-color: var(--nav-footer-bg)
+main
+{
+  background-color: var(--nav-footer-bg);
+  padding-bottom: 200px;
 }
 
 @keyframes fadeIn {
@@ -197,6 +199,7 @@ main{
   letter-spacing: -0.02em;
 }
 .icon-service {
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
@@ -383,7 +386,7 @@ footer{
   background-color: var(--nav-footer-bg);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 3rem var(--margin-value);
-  margin-top: 4rem;
+
 }
 
 footer > p {
@@ -392,7 +395,7 @@ footer > p {
   font-size: 0.9rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
 }
 
 .footer-container{
@@ -444,8 +447,20 @@ footer > p {
   color: #0d767e
 }
 
-
+.social-icon
+{
+  stroke: white;
+}
 #map{
   width: 425px;
   height: 350px;
+}
+
+@media only screen and (max-width: 820px) {
+  .service-header{
+    margin-bottom: 20px;
+  }
+  .services-container{
+    margin: 0;
+  }
 }
