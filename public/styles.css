@@ -495,9 +495,9 @@ footer  p {
         display: flex;
         flex-direction: row;
     }
-    .contact-form
+    .contact-form-container
     {
-        width: 100%;
+        width: 90%;
     }
     footer{
         padding: 0;
@@ -516,11 +516,14 @@ footer  p {
     .contact-container{
         flex-direction: column;
         text-align: center;
-        padding: 0;
+        margin-left: 5%;
         width: 100%;
     }
     #map
     {
         width: 370px;
+    }
+    main{
+        padding-bottom: 25%;
     }
 }
